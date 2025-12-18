@@ -1,0 +1,15 @@
+program TestSimple
+begin
+  func main()
+  begin
+    world = init_world(3, 3);
+    agent = set_agent(world, 1, 1, N);
+    print(5);
+    print("test");
+  end
+end
+
+
+
+
+

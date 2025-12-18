@@ -1,0 +1,306 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'FunctionTest'
+  [BEGIN] 'begin'
+  top_items
+    var_decl
+      [VAR] 'var'
+      id_list
+        [ID] 'result'
+      [SEMI] ';'
+    func_decl
+      [FUNC] 'func'
+      [ID] 'add'
+      [LPAREN] '('
+      params
+        param
+          [ID] 'a'
+          [COLON] ':'
+          [TYPE] 'int'
+        [COMMA] ','
+        param
+          [ID] 'b'
+          [COLON] ':'
+          [TYPE] 'int'
+      [RPAREN] ')'
+      [COLON] ':'
+      [TYPE] 'int'
+      [BEGIN] 'begin'
+      stmt_list
+        stmt
+          return_stmt
+            [RETURN] 'return'
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'a'
+                      [PLUS] '+'
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'b'
+            [SEMI] ';'
+      [END] 'end'
+    func_decl
+      [FUNC] 'func'
+      [ID] 'multiply'
+      [LPAREN] '('
+      params
+        param
+          [ID] 'a'
+          [COLON] ':'
+          [TYPE] 'int'
+        [COMMA] ','
+        param
+          [ID] 'b'
+          [COLON] ':'
+          [TYPE] 'int'
+      [RPAREN] ')'
+      [COLON] ':'
+      [TYPE] 'int'
+      [BEGIN] 'begin'
+      stmt_list
+        stmt
+          return_stmt
+            [RETURN] 'return'
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'a'
+                        [STAR] '*'
+                        unary
+                          primary
+                            [ID] 'b'
+            [SEMI] ';'
+      [END] 'end'
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        assign_stmt
+          [ID] 'result'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'add'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '10'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '20'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'result'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        assign_stmt
+          [ID] 'result'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'multiply'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '5'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '6'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'result'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        assign_stmt
+          [ID] 'result'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'add'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [ID] 'multiply'
+                                            [LPAREN] '('
+                                            args
+                                              expr
+                                                or_expr
+                                                  and_expr
+                                                    rel_expr
+                                                      add_expr
+                                                        mul_expr
+                                                          unary
+                                                            primary
+                                                              [INT] '2'
+                                              [COMMA] ','
+                                              expr
+                                                or_expr
+                                                  and_expr
+                                                    rel_expr
+                                                      add_expr
+                                                        mul_expr
+                                                          unary
+                                                            primary
+                                                              [INT] '3'
+                                            [RPAREN] ')'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [ID] 'multiply'
+                                            [LPAREN] '('
+                                            args
+                                              expr
+                                                or_expr
+                                                  and_expr
+                                                    rel_expr
+                                                      add_expr
+                                                        mul_expr
+                                                          unary
+                                                            primary
+                                                              [INT] '4'
+                                              [COMMA] ','
+                                              expr
+                                                or_expr
+                                                  and_expr
+                                                    rel_expr
+                                                      add_expr
+                                                        mul_expr
+                                                          unary
+                                                            primary
+                                                              [INT] '5'
+                                            [RPAREN] ')'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'result'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [STR] '"Function tests completed"'
+          [RPAREN] ')'
+          [SEMI] ';'
+    [END] 'end'
+  [END] 'end'

@@ -1,0 +1,89 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'TestPrint'
+  [BEGIN] 'begin'
+  top_items
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '42'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [BOOL] 'true'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [BOOL] 'false'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [STR] '"hello"'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [DIR] 'N'
+          [RPAREN] ')'
+          [SEMI] ';'
+    [END] 'end'
+  [END] 'end'

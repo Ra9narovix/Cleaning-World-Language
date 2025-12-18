@@ -1,0 +1,282 @@
+CLEANING WORLD LANGUAGE — USER MANUAL
+
+
+INTRODUCTION
+
+The Cleaning World Language (CWL) is a small, structured and Pascal-like language designed
+to control an autonomous cleaning agent moving in a 2D grid world.
+It supports user-defined functions, built-in procedures, variables, repetition through loops, control structures
+and basic arithmetic operations.
+
+This manual acts as a guide to write, structure and execute programs written in CWL.
+
+
+1. PROGRAM STRUCTURE
+
+Each CWL program must begin with the reserved word 'program' followed by the program name and a
+'begin ... end' block that defines the body of the program. Inside the program block, you can
+declare variables, define functions and implement the main cleaning logic.
+
+Example:
+    program SimpleClean
+    begin
+        var steps;
+        func main()
+        begin
+            world = init_world(5, 5);
+            agent = set_agent(world, 0, 0, N);
+            ...
+        end
+    end
+
+
+2. KEY LANGUAGE ELEMENTS
+
+- Reserved Words: program, begin, end, var, func, return, if, then, else, while, do, print, break
+- Built-in Objects: world, agent
+- Directions: N, E, S, W
+- Data Types: int, bool, string
+- Boolean Literals: true, false
+
+
+3. VARIABLES AND TYPES
+
+You declare variables using the 'var' keyword. Variables hold integers, booleans, or strings.
+
+Example:
+    var steps;
+    var name;
+
+All variables are globally visible within their function scope.
+
+
+4. EXPRESSIONS AND OPERATORS
+
+CWL supports arithmetic, relational and logical operations.
+
+Arithmetic:
+    +   Addition
+    -   Subtraction
+    *   Multiplication
+    /   Division
+
+Relational:
+    ==  Equality
+    !=  Inequality
+    <   Less than
+    <=  Less than or equal
+    >   Greater than
+    >=  Greater than or equal
+
+Logical:
+    &&  Logical AND
+    ||  Logical OR
+    !   Logical NOT
+
+Example:
+    steps = steps + 1;
+    if dirt_remaining(world) > 0 && is_dirty(agent) then
+        clean(agent);
+    end
+
+
+5. CONTROL STRUCTURES
+
+IF / THEN / ELSE
+
+Conditional execution is supported through if-then-else statements.
+
+Example:
+    if is_dirty(agent) then
+        clean(agent);
+    else
+        move_forward(agent);
+    end
+
+WHILE - DO LOOP
+
+Loops repeatedly execute a block while the condition is true.
+
+Example:
+    while dirt_remaining(world) > 0 do
+        move_forward(agent);
+    end
+
+BREAK STATEMENT
+
+Terminates the nearest enclosing loop.
+
+Example:
+    if front_is_blocked(agent) then
+        break;
+    end
+
+
+6. FUNCTIONS
+
+FUNCTION DECLARATION
+
+Functions are declared using the 'func' keyword and can optionally return a value.
+
+Syntax:
+    func name([params]) [ : type ]
+    begin
+        ... statements ...
+    end
+
+Example:
+    func move_line()
+    begin
+        while dirt_remaining(world) > 0 do
+            clean(agent);
+            move_forward(agent);
+        end
+    end
+
+USER-DEFINED FUNCTIONS
+
+You can define your own helper functions and call them from the main function.
+
+BUILT-IN FUNCTIONS
+
+The following functions are built into the Cleaning World runtime:
+    - init_world(width, height) : initializes a new cleaning world grid.
+    - set_agent(world, x, y, dir) : places the cleaning agent at (x, y) facing direction dir.
+    - dirt_remaining(world) : returns the amount of dirt left in the world.
+    - is_dirty(agent) : returns true if the current cell has dirt.
+    - clean(agent) : cleans the current cell.
+    - move_forward(agent) : moves the agent one step forward.
+    - turn_right(agent) : rotates the agent 90° clockwise.
+    - front_is_blocked(agent) : returns true if there’s a wall in front of the agent.
+
+
+7. INPUT AND OUTPUT
+
+CWL programs use the 'print()' function to display text or variable values.
+
+Example:
+    print("Cleaning complete.");
+    print(steps);
+
+
+8. STRINGS AND LITERALS
+
+String literals are enclosed in double quotes and may contain escape characters.
+
+Examples:
+    "done"
+    "Cleaning world initialized."
+
+
+9. COMMENTS
+
+Two comment styles are supported:
+
+Single-line comments:
+    // This is a comment
+
+Multi-line comments:
+    /* This is
+       a multi-line comment */
+
+
+10. PROGRAM EXECUTION FLOW
+
+1. The program starts at the top-level 'program' declaration.
+2. It reads declarations and function definitions.
+3. It executes the 'main' function, which serves as the entry point.
+4. Execution ends after 'main' completes.
+
+
+11. SAMPLE PROGRAMS
+
+Program 1: SimpleClean
+------
+program SimpleClean
+begin
+  var steps;
+  func main()
+  begin
+    world = init_world(5, 5);
+    agent = set_agent(world, 0, 0, N);
+    while dirt_remaining(world) > 0 do
+      if is_dirty(agent) then
+        clean(agent);
+      else if front_is_blocked(agent) then
+        turn_right(agent);
+      else
+        move_forward(agent);
+      end
+      steps = steps + 1;
+    end
+    print("done");
+  end
+end
+
+Program 2: ZigzagClean
+------
+program ZigzagClean
+begin
+  var row, col;
+
+  func move_line()
+  begin
+    while dirt_remaining(world) > 0 do
+      if is_dirty(agent) then
+        clean(agent);
+      else if front_is_blocked(agent) then
+        turn_right(agent);
+        turn_right(agent);
+        break;
+      else
+        move_forward(agent);
+      end
+    end
+  end
+
+  func zigzag(rows : int, cols : int)
+  begin
+    row = 0;
+    while row < rows do
+      move_line();
+      turn_right(agent);
+      if front_is_blocked(agent) then
+        break;
+      end
+      move_forward(agent);
+      turn_right(agent);
+      row = row + 1;
+    end
+  end
+
+  func main()
+  begin
+    world = init_world(5, 5);
+    agent = set_agent(world, 0, 0, E);
+    zigzag(5, 5);
+    print("Cleaning complete.");
+  end
+end
+
+
+12. ERROR HANDLING
+
+- Unrecognized symbols are reported as 'ERROR' tokens.
+- Unterminated strings or comments generate error messages.
+
+
+13. EXECUTION INSTRUCTIONS
+
+1. Save your program as a .clean file (e.g., sample.clean).
+2. Run the lexer using:
+       python3 lexer.py sample.clean
+3. The lexer outputs a token stream (line number, token ID, token name, and lexeme).
+
+Example output:
+    1   10  PROGRAM  program
+    1    2  ID       SimpleClean
+    2   11  BEGIN    begin
+
+
+END OF MANUAL
+

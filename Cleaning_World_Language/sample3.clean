@@ -1,0 +1,28 @@
+program BorderClean
+begin
+    var corners_turned;
+    func clean_side()
+    begin        
+        while front_is_blocked(agent) == false do
+            if is_dirty(agent) then
+                clean(agent);
+            end
+            move_forward(agent);
+        end   
+        if is_dirty(agent) then
+            clean(agent);
+        end
+    end
+    func main()
+    begin        
+        world = init_world(5, 5);        
+        agent = set_agent(world, 0, 0, E);
+        corners_turned = 0;       
+        while corners_turned < 4 do
+            clean_side();
+            turn_right(agent);   
+            corners_turned = corners_turned + 1;
+        end
+        print("Border cleaning complete.");
+    end
+end

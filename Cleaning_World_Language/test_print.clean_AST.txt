@@ -1,0 +1,17 @@
+Program(Name='TestPrint')
+  Declarations:
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          PrintStmt (Type: None)
+            Literal(Value='42', Type='int') (Type: int)
+          PrintStmt (Type: None)
+            Literal(Value='true', Type='bool') (Type: bool)
+          PrintStmt (Type: None)
+            Literal(Value='false', Type='bool') (Type: bool)
+          PrintStmt (Type: None)
+            Literal(Value='hello', Type='string') (Type: string)
+          PrintStmt (Type: None)
+            Literal(Value='N', Type='dir') (Type: dir)
+        )

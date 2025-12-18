@@ -1,0 +1,14 @@
+program TestWorldAgent
+begin
+  func main()
+  begin
+    world = init_world(3, 3);
+    agent = set_agent(world, 1, 1, N);
+    print(dirt_remaining(world));
+  end
+end
+
+
+
+
+

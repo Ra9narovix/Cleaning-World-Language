@@ -1,0 +1,121 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'TestElseIf'
+  [BEGIN] 'begin'
+  top_items
+    var_decl
+      [VAR] 'var'
+      id_list
+        [ID] 'x'
+      [SEMI] ';'
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        assign_stmt
+          [ID] 'x'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '2'
+          [SEMI] ';'
+      stmt
+        if_stmt
+          [IF] 'if'
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'x'
+                  [EQ] '=='
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '1'
+          [THEN] 'then'
+          stmt_list
+            stmt
+              print_stmt
+                [PRINT] 'print'
+                [LPAREN] '('
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [STR] '"one"'
+                [RPAREN] ')'
+                [SEMI] ';'
+          [ELSE] 'else'
+          if_stmt
+            [IF] 'if'
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'x'
+                    [EQ] '=='
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [INT] '2'
+            [THEN] 'then'
+            stmt_list
+              stmt
+                print_stmt
+                  [PRINT] 'print'
+                  [LPAREN] '('
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [STR] '"two"'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+            [ELSE] 'else'
+            stmt_list
+              stmt
+                print_stmt
+                  [PRINT] 'print'
+                  [LPAREN] '('
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [STR] '"other"'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+            [END] 'end'
+    [END] 'end'
+  [END] 'end'

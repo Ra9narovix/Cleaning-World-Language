@@ -1,0 +1,9 @@
+Program(Name='TestErrors')
+  Declarations:
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          PrintStmt (Type: None)
+            Identifier(Name='x') (Type: None)
+        )

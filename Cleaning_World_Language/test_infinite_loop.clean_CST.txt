@@ -1,0 +1,67 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'TestInfinite'
+  [BEGIN] 'begin'
+  top_items
+    var_decl
+      [VAR] 'var'
+      id_list
+        [ID] 'x'
+      [SEMI] ';'
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        assign_stmt
+          [ID] 'x'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '0'
+          [SEMI] ';'
+      stmt
+        while_stmt
+          [WHILE] 'while'
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [BOOL] 'true'
+          [DO] 'do'
+          stmt_list
+            stmt
+              assign_stmt
+                [ID] 'x'
+                [ASSIGN] '='
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [ID] 'x'
+                          [PLUS] '+'
+                          mul_expr
+                            unary
+                              primary
+                                [INT] '1'
+                [SEMI] ';'
+          [END] 'end'
+    [END] 'end'
+  [END] 'end'

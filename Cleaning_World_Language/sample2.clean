@@ -1,0 +1,42 @@
+program ZigzagClean
+begin
+  var row, col;
+
+  func move_line()
+  begin
+    while dirt_remaining(world) > 0 do
+      if is_dirty(agent) then
+        clean(agent);
+      else if front_is_blocked(agent) then
+        turn_right(agent);
+        turn_right(agent);
+        break;
+      else
+        move_forward(agent);
+      end
+    end
+  end
+
+  func zigzag(rows : int, cols : int)
+  begin
+    row = 0;
+    while row < rows do
+      move_line();
+      turn_right(agent);
+      if front_is_blocked(agent) then
+        break;
+      end
+      move_forward(agent);
+      turn_right(agent);
+      row = row + 1;
+    end
+  end
+
+  func main()
+  begin
+    world = init_world(5, 5);
+    agent = set_agent(world, 0, 0, E);
+    zigzag(5, 5);
+    print("Cleaning complete.");
+  end
+end

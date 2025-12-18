@@ -1,0 +1,475 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'ZigzagClean'
+  [BEGIN] 'begin'
+  top_items
+    var_decl
+      [VAR] 'var'
+      id_list
+        [ID] 'row'
+        [COMMA] ','
+        [ID] 'col'
+      [SEMI] ';'
+    func_decl
+      [FUNC] 'func'
+      [ID] 'move_line'
+      [LPAREN] '('
+      [RPAREN] ')'
+      [BEGIN] 'begin'
+      stmt_list
+        stmt
+          while_stmt
+            [WHILE] 'while'
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'dirt_remaining'
+                            [LPAREN] '('
+                            args
+                              expr
+                                or_expr
+                                  and_expr
+                                    rel_expr
+                                      add_expr
+                                        mul_expr
+                                          unary
+                                            primary
+                                              [WORLD] 'world'
+                            [RPAREN] ')'
+                    [GT] '>'
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [INT] '0'
+            [DO] 'do'
+            stmt_list
+              stmt
+                if_stmt
+                  [IF] 'if'
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [ID] 'is_dirty'
+                                  [LPAREN] '('
+                                  args
+                                    expr
+                                      or_expr
+                                        and_expr
+                                          rel_expr
+                                            add_expr
+                                              mul_expr
+                                                unary
+                                                  primary
+                                                    [AGENT] 'agent'
+                                  [RPAREN] ')'
+                  [THEN] 'then'
+                  stmt_list
+                    stmt
+                      call_stmt
+                        [ID] 'clean'
+                        [LPAREN] '('
+                        args
+                          expr
+                            or_expr
+                              and_expr
+                                rel_expr
+                                  add_expr
+                                    mul_expr
+                                      unary
+                                        primary
+                                          [AGENT] 'agent'
+                        [RPAREN] ')'
+                        [SEMI] ';'
+                  [ELSE] 'else'
+                  if_stmt
+                    [IF] 'if'
+                    expr
+                      or_expr
+                        and_expr
+                          rel_expr
+                            add_expr
+                              mul_expr
+                                unary
+                                  primary
+                                    [ID] 'front_is_blocked'
+                                    [LPAREN] '('
+                                    args
+                                      expr
+                                        or_expr
+                                          and_expr
+                                            rel_expr
+                                              add_expr
+                                                mul_expr
+                                                  unary
+                                                    primary
+                                                      [AGENT] 'agent'
+                                    [RPAREN] ')'
+                    [THEN] 'then'
+                    stmt_list
+                      stmt
+                        call_stmt
+                          [ID] 'turn_right'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [AGENT] 'agent'
+                          [RPAREN] ')'
+                          [SEMI] ';'
+                      stmt
+                        call_stmt
+                          [ID] 'turn_right'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [AGENT] 'agent'
+                          [RPAREN] ')'
+                          [SEMI] ';'
+                      stmt
+                        break_stmt
+                          [BREAK] 'break'
+                          [SEMI] ';'
+                    [ELSE] 'else'
+                    stmt_list
+                      stmt
+                        call_stmt
+                          [ID] 'move_forward'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [AGENT] 'agent'
+                          [RPAREN] ')'
+                          [SEMI] ';'
+                    [END] 'end'
+            [END] 'end'
+      [END] 'end'
+    func_decl
+      [FUNC] 'func'
+      [ID] 'zigzag'
+      [LPAREN] '('
+      params
+        param
+          [ID] 'rows'
+          [COLON] ':'
+          [TYPE] 'int'
+        [COMMA] ','
+        param
+          [ID] 'cols'
+          [COLON] ':'
+          [TYPE] 'int'
+      [RPAREN] ')'
+      [BEGIN] 'begin'
+      stmt_list
+        stmt
+          assign_stmt
+            [ID] 'row'
+            [ASSIGN] '='
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [INT] '0'
+            [SEMI] ';'
+        stmt
+          while_stmt
+            [WHILE] 'while'
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'row'
+                    [LT] '<'
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'rows'
+            [DO] 'do'
+            stmt_list
+              stmt
+                call_stmt
+                  [ID] 'move_line'
+                  [LPAREN] '('
+                  [RPAREN] ')'
+                  [SEMI] ';'
+              stmt
+                call_stmt
+                  [ID] 'turn_right'
+                  [LPAREN] '('
+                  args
+                    expr
+                      or_expr
+                        and_expr
+                          rel_expr
+                            add_expr
+                              mul_expr
+                                unary
+                                  primary
+                                    [AGENT] 'agent'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+              stmt
+                if_stmt
+                  [IF] 'if'
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [ID] 'front_is_blocked'
+                                  [LPAREN] '('
+                                  args
+                                    expr
+                                      or_expr
+                                        and_expr
+                                          rel_expr
+                                            add_expr
+                                              mul_expr
+                                                unary
+                                                  primary
+                                                    [AGENT] 'agent'
+                                  [RPAREN] ')'
+                  [THEN] 'then'
+                  stmt_list
+                    stmt
+                      break_stmt
+                        [BREAK] 'break'
+                        [SEMI] ';'
+                  [END] 'end'
+              stmt
+                call_stmt
+                  [ID] 'move_forward'
+                  [LPAREN] '('
+                  args
+                    expr
+                      or_expr
+                        and_expr
+                          rel_expr
+                            add_expr
+                              mul_expr
+                                unary
+                                  primary
+                                    [AGENT] 'agent'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+              stmt
+                call_stmt
+                  [ID] 'turn_right'
+                  [LPAREN] '('
+                  args
+                    expr
+                      or_expr
+                        and_expr
+                          rel_expr
+                            add_expr
+                              mul_expr
+                                unary
+                                  primary
+                                    [AGENT] 'agent'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+              stmt
+                assign_stmt
+                  [ID] 'row'
+                  [ASSIGN] '='
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [ID] 'row'
+                            [PLUS] '+'
+                            mul_expr
+                              unary
+                                primary
+                                  [INT] '1'
+                  [SEMI] ';'
+            [END] 'end'
+      [END] 'end'
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        assign_stmt
+          [WORLD] 'world'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'init_world'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '5'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '5'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        assign_stmt
+          [AGENT] 'agent'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'set_agent'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [WORLD] 'world'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '0'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '0'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [DIR] 'E'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        call_stmt
+          [ID] 'zigzag'
+          [LPAREN] '('
+          args
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [INT] '5'
+            [COMMA] ','
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [INT] '5'
+          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [STR] '"Cleaning complete."'
+          [RPAREN] ')'
+          [SEMI] ';'
+    [END] 'end'
+  [END] 'end'

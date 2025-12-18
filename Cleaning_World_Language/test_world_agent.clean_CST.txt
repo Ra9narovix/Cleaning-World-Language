@@ -1,0 +1,133 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'TestWorldAgent'
+  [BEGIN] 'begin'
+  top_items
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        assign_stmt
+          [WORLD] 'world'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'init_world'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '3'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '3'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        assign_stmt
+          [AGENT] 'agent'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'set_agent'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [WORLD] 'world'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '1'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [INT] '1'
+                            [COMMA] ','
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [DIR] 'N'
+                          [RPAREN] ')'
+          [SEMI] ';'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'dirt_remaining'
+                          [LPAREN] '('
+                          args
+                            expr
+                              or_expr
+                                and_expr
+                                  rel_expr
+                                    add_expr
+                                      mul_expr
+                                        unary
+                                          primary
+                                            [WORLD] 'world'
+                          [RPAREN] ')'
+          [RPAREN] ')'
+          [SEMI] ';'
+    [END] 'end'
+  [END] 'end'

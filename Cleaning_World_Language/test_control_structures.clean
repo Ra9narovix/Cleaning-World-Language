@@ -1,0 +1,51 @@
+program ControlStructures
+begin
+  var x, y, count;
+  
+  func main()
+  begin
+    // Test 1: If-Then-Else statements
+    x = 10;
+    y = 5;
+    if x > y then
+      print("x is greater than y");
+    else
+      print("y is greater than or equal to x");
+    end
+    
+    // Test 2: While loop with break
+    count = 0;
+    while count < 10 do
+      count = count + 1;
+      if count == 5 then
+        print("Breaking at 5");
+        break;
+      end
+      print(count);
+    end
+    
+    // Test 3: Nested If-Else
+    x = 7;
+    if x > 10 then
+      print("x is greater than 10");
+    else if x > 5 then
+      print("x is between 5 and 10");
+    else
+      print("x is 5 or less");
+    end
+    
+    // Test 4: While with condition
+    count = 0;
+    while count < 3 do
+      print(count);
+      count = count + 1;
+    end
+    
+    print("All tests completed");
+  end
+end
+
+
+
+
+

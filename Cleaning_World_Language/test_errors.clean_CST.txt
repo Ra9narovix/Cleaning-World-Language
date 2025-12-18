@@ -1,0 +1,29 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'TestErrors'
+  [BEGIN] 'begin'
+  top_items
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'x'
+          [RPAREN] ')'
+          [SEMI] ';'
+    [END] 'end'
+  [END] 'end'

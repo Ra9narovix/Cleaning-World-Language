@@ -1,0 +1,68 @@
+program TestAllTokens
+begin
+// 1. Declarations & Types
+var x, y, z;
+var flag;
+var text;
+
+// 2. Function Definition
+func test_func(a : int, b : bool) : string
+begin
+    return "returned string";
+end
+
+func main()
+begin
+    // 3. Literals
+    x = 123;            // INT
+    flag = true;        // BOOL true
+    flag = false;       // BOOL false
+    text = "Hello World"; // STR
+
+    // 4. Built-in Objects & Directions
+    world = init_world(10, 10);
+    agent = set_agent(world, 0, 0, N);
+    set_agent(world, 1, 1, E);
+    set_agent(world, 2, 2, S);
+    set_agent(world, 3, 3, W);
+
+    // 5. Arithmetic Operators
+    x = x + 1;
+    x = x - 1;
+    x = x * 2;
+    x = x / 2;
+
+    // 6. Relational Operators
+    if x == 10 then print("equal"); end
+    if x != 10 then print("neq"); end
+    if x < 100 then print("less"); end
+    if x <= 100 then print("le"); end
+    if x > 0   then print("greater"); end
+    if x >= 0  then print("ge"); end
+
+    // 7. Logical Operators
+    if (true && false) || !true then
+        print("logic");
+    end
+
+    // 8. Control Structures
+    while dirt_remaining(world) > 0 do
+        if front_is_blocked(agent) then
+            break;
+        else
+            move_forward(agent);
+        end
+    end
+
+    // 9. Built-in functions calls
+    turn_right(agent);
+    clean(agent);
+    print(is_dirty(agent));
+    
+    /* 10. Multi-line comment test 
+       Should be ignored
+    */
+end
+
+
+end

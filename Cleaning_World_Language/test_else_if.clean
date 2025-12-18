@@ -1,0 +1,16 @@
+program TestElseIf
+begin
+  var x;
+  func main()
+  begin
+    x = 2;
+    if x == 1 then
+      print("one");
+    else if x == 2 then
+      print("two");
+    else
+      print("other");
+    end
+  end
+end
+

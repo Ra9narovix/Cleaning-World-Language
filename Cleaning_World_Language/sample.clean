@@ -1,0 +1,20 @@
+program SimpleClean
+begin
+  var steps;
+  func main()
+  begin
+    world = init_world(5, 5);
+    agent = set_agent(world, 0, 0, N);
+    while dirt_remaining(world) > 0 do
+      if is_dirty(agent) then
+        clean(agent);
+      else if front_is_blocked(agent) then
+        turn_right(agent);
+      else
+        move_forward(agent);
+      end
+      steps = steps + 1;
+    end
+    print("done");
+  end
+end

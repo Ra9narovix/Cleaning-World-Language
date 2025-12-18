@@ -1,0 +1,16 @@
+program TestPrint
+begin
+  func main()
+  begin
+    print(42);
+    print(true);
+    print(false);
+    print("hello");
+    print(N);
+  end
+end
+
+
+
+
+

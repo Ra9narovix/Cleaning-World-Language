@@ -1,0 +1,100 @@
+COMPILER PIPELINE OVERVIEW
+
+The CWL compiler processes source code through a sequential three-phase pipeline. Each phase reshapes the data into a more structured format until it is in a fully validated Abstract Syntax Tree (AST).
+
+Phase 1: Lexical Analysis
+Input: Raw source code file (.clean).
+Process: The lexer reads the source code character by character. It ignores whitespace and comments while grouping valid characters into Tokens. Each token represents a basic element of the language such as a keyword ("program", "if"), an operator ("+", "==") or an identifier ("myVar").
+Output: A stream of Token objects.
+
+Phase 2: Syntax Analysis
+Input: The list of Token objects from Phase 1.
+Process: The parser verifies that the sequence of tokens corresponds to the grammar rules of the Cleaning World Language.
+
+Step 2a (CST Generation)
+First, it constructs a Concrete Syntax Tree (CST). 
+
+Step 2b (AST Transformation)
+Immediately after parsing, the compiler traverses the CST to convert it into an Abstract Syntax Tree (AST). 
+
+Output: An AST object structure representing the program's logic.
+
+Phase 3: Semantic Analysis
+Input: The Abstract Syntax Tree (AST) from Phase 2.
+Process: The semantic analyzer traverses the AST to enforce rules that the grammar cannot capture.
+
+Scope Checking: It verifies that every variable or function used has been properly declared in the current or global scope.
+
+Type Checking: It ensures that operations are performed on compatible types (e.g., preventing the addition of a bool to an int) and that function calls receive the correct number and type of arguments.
+Output: A validated AST or a precise semantic error message.
+
+FILE DESCRIPTIONS AND ROLES
+
+The project consists of four Python(.py) files with each serving a separate purpose in the compilation process:
+
+main.py - Driver
+The entry point for the application. It manages the entire pipeline. It validates input files, calls the lexer, initiates parsing, handles the CST-to-AST transformation and finally initiates the semantic analysis. It is also responsible for writing the output files to disk.
+
+lexer.py - Lexer
+Contains the tokenize() function and the regular expression definitions (TOKEN_DEFS). It scans the input string and produces a list of token dictionaries. It includes logic to automatically generate Token IDs and identifying Reserved Words to prevent maintenance errors.
+
+parser_semantics.py - Parser & Analyzer
+The core logic engine containing three classes:
+
+Parser: Implements the Recursive Descent logic to validate syntax and build the CST.
+
+CSTtoAST: A converter class that simplifies the CST into an AST.
+
+SemanticAnalyzer: A visitor class that traverses the AST to enforce scope and type safety using a SymbolTable.
+
+ast_nodes.py - Data Structures
+Defines the Python classes for the tree nodes used by the parser and analyzer.
+
+CSTNode: A generic node used for the Parse Tree.
+
+ASTNode subclasses (e.g., Program, IfStmt, BinaryOp): Specific nodes representing language constructs in the AST.
+
+USER MANUAL: HOW TO RUN THE SYSTEM
+
+All 4 source files (main.py, lexer.py, parser_semantics.py, ast_nodes.py) must be in the same directory.
+
+Running the Compiler
+To compile a CWL program, use the main.py script. You must provide the source file as a command-line argument.
+
+Command Syntax:
+python3 main.py <filename.clean>
+
+Example:
+To compile a file named sample.clean:
+python3 main.py sample.clean
+
+Generated Outputs
+Upon successful execution, the compiler will generate two text files in the same directory as the source file:
+
+sample,clean_CST.txt: The Concrete Syntax Tree.
+
+sample.clean_AST.txt: The Abstract Syntax Tree.
+
+Console Output
+The terminal will display progress messages indicating the success or failure of each phase:
+
+--- COMPILING: sample.clean ---
+
+--- 1. PARSING (CST Generation): sample ---
+[INFO] Syntax Analysis (CST Generation): SUCCESS
+CST written to: sample_CST.txt
+
+--- 2. AST GENERATION ---
+AST written to: sample_AST.txt
+
+--- 3. STATIC SEMANTICS ANALYSIS ---
+[INFO] Static Semantics Check: SUCCESS
+[INFO] AST updated with semantic info.
+
+Troubleshooting
+
+[LEXER ERROR]: The input file contains an illegal character (e.g., @ or #) that is not part of the language specifications.
+
+[SYNTAX ERROR]: The code violates the grammar rules (e.g., missing a semicolon, unmatched parentheses or incorrect keyword usage).
+
+[SEMANTIC ERROR]: The code is grammatically correct but logically invalid (e.g., using an undeclared variable x = y + 1).

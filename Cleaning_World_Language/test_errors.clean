@@ -1,0 +1,12 @@
+program TestErrors
+begin
+  func main()
+  begin
+    print(x);  // Undeclared variable
+  end
+end
+
+
+
+
+

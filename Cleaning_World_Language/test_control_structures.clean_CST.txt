@@ -1,0 +1,399 @@
+program
+  [PROGRAM] 'program'
+  [ID] 'ControlStructures'
+  [BEGIN] 'begin'
+  top_items
+    var_decl
+      [VAR] 'var'
+      id_list
+        [ID] 'x'
+        [COMMA] ','
+        [ID] 'y'
+        [COMMA] ','
+        [ID] 'count'
+      [SEMI] ';'
+  main_decl
+    [FUNC] 'func'
+    [ID] 'main'
+    [LPAREN] '('
+    [RPAREN] ')'
+    [BEGIN] 'begin'
+    stmt_list
+      stmt
+        assign_stmt
+          [ID] 'x'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '10'
+          [SEMI] ';'
+      stmt
+        assign_stmt
+          [ID] 'y'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '5'
+          [SEMI] ';'
+      stmt
+        if_stmt
+          [IF] 'if'
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'x'
+                  [GT] '>'
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'y'
+          [THEN] 'then'
+          stmt_list
+            stmt
+              print_stmt
+                [PRINT] 'print'
+                [LPAREN] '('
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [STR] '"x is greater than y"'
+                [RPAREN] ')'
+                [SEMI] ';'
+          [ELSE] 'else'
+          stmt_list
+            stmt
+              print_stmt
+                [PRINT] 'print'
+                [LPAREN] '('
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [STR] '"y is greater than or equal to x"'
+                [RPAREN] ')'
+                [SEMI] ';'
+          [END] 'end'
+      stmt
+        assign_stmt
+          [ID] 'count'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '0'
+          [SEMI] ';'
+      stmt
+        while_stmt
+          [WHILE] 'while'
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'count'
+                  [LT] '<'
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '10'
+          [DO] 'do'
+          stmt_list
+            stmt
+              assign_stmt
+                [ID] 'count'
+                [ASSIGN] '='
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [ID] 'count'
+                          [PLUS] '+'
+                          mul_expr
+                            unary
+                              primary
+                                [INT] '1'
+                [SEMI] ';'
+            stmt
+              if_stmt
+                [IF] 'if'
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [ID] 'count'
+                        [EQ] '=='
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [INT] '5'
+                [THEN] 'then'
+                stmt_list
+                  stmt
+                    print_stmt
+                      [PRINT] 'print'
+                      [LPAREN] '('
+                      expr
+                        or_expr
+                          and_expr
+                            rel_expr
+                              add_expr
+                                mul_expr
+                                  unary
+                                    primary
+                                      [STR] '"Breaking at 5"'
+                      [RPAREN] ')'
+                      [SEMI] ';'
+                  stmt
+                    break_stmt
+                      [BREAK] 'break'
+                      [SEMI] ';'
+                [END] 'end'
+            stmt
+              print_stmt
+                [PRINT] 'print'
+                [LPAREN] '('
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [ID] 'count'
+                [RPAREN] ')'
+                [SEMI] ';'
+          [END] 'end'
+      stmt
+        assign_stmt
+          [ID] 'x'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '7'
+          [SEMI] ';'
+      stmt
+        if_stmt
+          [IF] 'if'
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'x'
+                  [GT] '>'
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '10'
+          [THEN] 'then'
+          stmt_list
+            stmt
+              print_stmt
+                [PRINT] 'print'
+                [LPAREN] '('
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [STR] '"x is greater than 10"'
+                [RPAREN] ')'
+                [SEMI] ';'
+          [ELSE] 'else'
+          if_stmt
+            [IF] 'if'
+            expr
+              or_expr
+                and_expr
+                  rel_expr
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [ID] 'x'
+                    [GT] '>'
+                    add_expr
+                      mul_expr
+                        unary
+                          primary
+                            [INT] '5'
+            [THEN] 'then'
+            stmt_list
+              stmt
+                print_stmt
+                  [PRINT] 'print'
+                  [LPAREN] '('
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [STR] '"x is between 5 and 10"'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+            [ELSE] 'else'
+            stmt_list
+              stmt
+                print_stmt
+                  [PRINT] 'print'
+                  [LPAREN] '('
+                  expr
+                    or_expr
+                      and_expr
+                        rel_expr
+                          add_expr
+                            mul_expr
+                              unary
+                                primary
+                                  [STR] '"x is 5 or less"'
+                  [RPAREN] ')'
+                  [SEMI] ';'
+            [END] 'end'
+      stmt
+        assign_stmt
+          [ID] 'count'
+          [ASSIGN] '='
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '0'
+          [SEMI] ';'
+      stmt
+        while_stmt
+          [WHILE] 'while'
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [ID] 'count'
+                  [LT] '<'
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [INT] '3'
+          [DO] 'do'
+          stmt_list
+            stmt
+              print_stmt
+                [PRINT] 'print'
+                [LPAREN] '('
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [ID] 'count'
+                [RPAREN] ')'
+                [SEMI] ';'
+            stmt
+              assign_stmt
+                [ID] 'count'
+                [ASSIGN] '='
+                expr
+                  or_expr
+                    and_expr
+                      rel_expr
+                        add_expr
+                          mul_expr
+                            unary
+                              primary
+                                [ID] 'count'
+                          [PLUS] '+'
+                          mul_expr
+                            unary
+                              primary
+                                [INT] '1'
+                [SEMI] ';'
+          [END] 'end'
+      stmt
+        print_stmt
+          [PRINT] 'print'
+          [LPAREN] '('
+          expr
+            or_expr
+              and_expr
+                rel_expr
+                  add_expr
+                    mul_expr
+                      unary
+                        primary
+                          [STR] '"All tests completed"'
+          [RPAREN] ')'
+          [SEMI] ';'
+    [END] 'end'
+  [END] 'end'

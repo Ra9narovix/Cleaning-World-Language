@@ -1,0 +1,18 @@
+Program(Name='TestInfinite')
+  Declarations:
+    VarDecl(['x']) (Type: None)
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          AssignStmt(Target='x') (Type: int)
+            Literal(Value='0', Type='int') (Type: int)
+          WhileStmt (Type: None)
+            Literal(Value='true', Type='bool') (Type: bool)
+            StmtList (
+              AssignStmt(Target='x') (Type: int)
+                BinaryOp(Op='+') (Type: int)
+                  Identifier(Name='x') (Type: int)
+                  Literal(Value='1', Type='int') (Type: int)
+            )
+        )

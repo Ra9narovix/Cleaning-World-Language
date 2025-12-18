@@ -1,0 +1,15 @@
+program SimpleTest
+begin
+  var x;
+  func main()
+  begin
+    x = 5;
+    print(x);
+    print("Hello, World!");
+  end
+end
+
+
+
+
+

@@ -1,0 +1,32 @@
+Program(Name='TestElseIf')
+  Declarations:
+    VarDecl(['x']) (Type: None)
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          AssignStmt(Target='x') (Type: int)
+            Literal(Value='2', Type='int') (Type: int)
+          IfStmt (Type: None)
+            BinaryOp(Op='==') (Type: None)
+              Identifier(Name='x') (Type: int)
+              Literal(Value='1', Type='int') (Type: int)
+            StmtList (
+              PrintStmt (Type: None)
+                Literal(Value='one', Type='string') (Type: string)
+            )
+            StmtList (
+              IfStmt (Type: None)
+                BinaryOp(Op='==') (Type: None)
+                  Identifier(Name='x') (Type: int)
+                  Literal(Value='2', Type='int') (Type: int)
+                StmtList (
+                  PrintStmt (Type: None)
+                    Literal(Value='two', Type='string') (Type: string)
+                )
+                StmtList (
+                  PrintStmt (Type: None)
+                    Literal(Value='other', Type='string') (Type: string)
+                )
+            )
+        )

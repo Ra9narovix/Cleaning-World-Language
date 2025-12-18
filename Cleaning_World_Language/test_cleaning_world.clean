@@ -1,0 +1,40 @@
+program CleaningWorldTest
+begin
+  var steps;
+  
+  func main()
+  begin
+    world = init_world(5, 5);
+    agent = set_agent(world, 0, 0, N);
+    
+    steps = 0;
+    print("Starting cleaning...");
+    
+    // Simple cleaning algorithm: move and clean until done
+    while dirt_remaining(world) > 0 && steps < 100 do
+      if is_dirty(agent) then
+        clean(agent);
+        print("Cleaned!");
+      end
+      
+      if front_is_blocked(agent) then
+        turn_right(agent);
+      else
+        move_forward(agent);
+      end
+      
+      steps = steps + 1;
+    end
+    
+    print("Cleaning complete!");
+    print("Steps taken:");
+    print(steps);
+    print("Dirt remaining:");
+    print(dirt_remaining(world));
+  end
+end
+
+
+
+
+

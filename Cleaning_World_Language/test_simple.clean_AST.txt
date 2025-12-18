@@ -1,0 +1,14 @@
+Program(Name='SimpleTest')
+  Declarations:
+    VarDecl(['x']) (Type: None)
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          AssignStmt(Target='x') (Type: int)
+            Literal(Value='5', Type='int') (Type: int)
+          PrintStmt (Type: None)
+            Identifier(Name='x') (Type: int)
+          PrintStmt (Type: None)
+            Literal(Value='Hello, World!', Type='string') (Type: string)
+        )

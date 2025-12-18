@@ -1,0 +1,51 @@
+Program(Name='SimpleClean')
+  Declarations:
+    VarDecl(['steps']) (Type: None)
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          AssignStmt(Target='world') (Type: world)
+            FuncCallExpr(Func='init_world') (Type: world)
+              Literal(Value='5', Type='int') (Type: int)
+              Literal(Value='5', Type='int') (Type: int)
+          AssignStmt(Target='agent') (Type: agent)
+            FuncCallExpr(Func='set_agent') (Type: agent)
+              WorldObject (Type: world)
+              Literal(Value='0', Type='int') (Type: int)
+              Literal(Value='0', Type='int') (Type: int)
+              Literal(Value='N', Type='dir') (Type: dir)
+          WhileStmt (Type: None)
+            BinaryOp(Op='>') (Type: None)
+              FuncCallExpr(Func='dirt_remaining') (Type: int)
+                WorldObject (Type: world)
+              Literal(Value='0', Type='int') (Type: int)
+            StmtList (
+              IfStmt (Type: None)
+                FuncCallExpr(Func='is_dirty') (Type: bool)
+                  AgentObject (Type: agent)
+                StmtList (
+                  CallStmt(Func='clean') (Type: void)
+                    AgentObject (Type: agent)
+                )
+                StmtList (
+                  IfStmt (Type: None)
+                    FuncCallExpr(Func='front_is_blocked') (Type: bool)
+                      AgentObject (Type: agent)
+                    StmtList (
+                      CallStmt(Func='turn_right') (Type: void)
+                        AgentObject (Type: agent)
+                    )
+                    StmtList (
+                      CallStmt(Func='move_forward') (Type: void)
+                        AgentObject (Type: agent)
+                    )
+                )
+              AssignStmt(Target='steps') (Type: int)
+                BinaryOp(Op='+') (Type: int)
+                  Identifier(Name='steps') (Type: int)
+                  Literal(Value='1', Type='int') (Type: int)
+            )
+          PrintStmt (Type: None)
+            Literal(Value='done', Type='string') (Type: string)
+        )

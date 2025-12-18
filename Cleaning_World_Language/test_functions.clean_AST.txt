@@ -1,0 +1,48 @@
+Program(Name='FunctionTest')
+  Declarations:
+    VarDecl(['result']) (Type: None)
+    FuncDecl(Name='add', Params=[a: int, b: int], ReturnType='int')
+      Body (StmtList):
+        StmtList (
+          ReturnStmt(HasValue=True) (Type: None)
+            BinaryOp(Op='+') (Type: None)
+              Identifier(Name='a') (Type: None)
+              Identifier(Name='b') (Type: None)
+        )
+    FuncDecl(Name='multiply', Params=[a: int, b: int], ReturnType='int')
+      Body (StmtList):
+        StmtList (
+          ReturnStmt(HasValue=True) (Type: None)
+            BinaryOp(Op='*') (Type: None)
+              Identifier(Name='a') (Type: None)
+              Identifier(Name='b') (Type: None)
+        )
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          AssignStmt(Target='result') (Type: int)
+            FuncCallExpr(Func='add') (Type: int)
+              Literal(Value='10', Type='int') (Type: int)
+              Literal(Value='20', Type='int') (Type: int)
+          PrintStmt (Type: None)
+            Identifier(Name='result') (Type: int)
+          AssignStmt(Target='result') (Type: int)
+            FuncCallExpr(Func='multiply') (Type: int)
+              Literal(Value='5', Type='int') (Type: int)
+              Literal(Value='6', Type='int') (Type: int)
+          PrintStmt (Type: None)
+            Identifier(Name='result') (Type: int)
+          AssignStmt(Target='result') (Type: int)
+            FuncCallExpr(Func='add') (Type: int)
+              FuncCallExpr(Func='multiply') (Type: int)
+                Literal(Value='2', Type='int') (Type: int)
+                Literal(Value='3', Type='int') (Type: int)
+              FuncCallExpr(Func='multiply') (Type: int)
+                Literal(Value='4', Type='int') (Type: int)
+                Literal(Value='5', Type='int') (Type: int)
+          PrintStmt (Type: None)
+            Identifier(Name='result') (Type: int)
+          PrintStmt (Type: None)
+            Literal(Value='Function tests completed', Type='string') (Type: string)
+        )

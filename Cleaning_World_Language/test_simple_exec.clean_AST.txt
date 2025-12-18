@@ -1,0 +1,21 @@
+Program(Name='TestSimple')
+  Declarations:
+  Main Function:
+    FuncDecl(Name='main', Params=[], ReturnType='void')
+      Body (StmtList):
+        StmtList (
+          AssignStmt(Target='world') (Type: world)
+            FuncCallExpr(Func='init_world') (Type: world)
+              Literal(Value='3', Type='int') (Type: int)
+              Literal(Value='3', Type='int') (Type: int)
+          AssignStmt(Target='agent') (Type: agent)
+            FuncCallExpr(Func='set_agent') (Type: agent)
+              WorldObject (Type: world)
+              Literal(Value='1', Type='int') (Type: int)
+              Literal(Value='1', Type='int') (Type: int)
+              Literal(Value='N', Type='dir') (Type: dir)
+          PrintStmt (Type: None)
+            Literal(Value='5', Type='int') (Type: int)
+          PrintStmt (Type: None)
+            Literal(Value='test', Type='string') (Type: string)
+        )

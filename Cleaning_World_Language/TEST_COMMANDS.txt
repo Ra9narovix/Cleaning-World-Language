@@ -1,0 +1,57 @@
+================================================================================
+                    CLEANING WORLD LANGUAGE - TEST COMMANDS
+================================================================================
+
+CRITICAL TESTS (Run these first to verify fixes)
+================================================================================
+
+python main.py test_print.clean --execute
+python main.py test_world_agent.clean --execute
+python main.py test_simple_exec.clean --execute
+
+================================================================================
+ALL TESTS (Run in order)
+================================================================================
+
+# Basic Tests
+python main.py test_simple_exec.clean --execute
+python main.py test_print.clean --execute
+python main.py test_world_agent.clean --execute
+python main.py test_else_if.clean --execute
+
+# Error & Safety Tests
+python main.py test_errors.clean --execute
+python main.py test_infinite_loop.clean --execute
+
+# Feature Tests
+python main.py test_simple.clean --execute
+python main.py test_control_structures.clean --execute
+python main.py test_functions.clean --execute
+python main.py test_cleaning_world.clean --execute
+
+# Sample Programs
+python main.py sample.clean --execute
+python main.py sample2.clean --execute
+python main.py sample3.clean --execute
+
+# Lexical Analysis (no execution)
+python main.py test_all_tokens.clean
+
+================================================================================
+QUICK TEST (Just verify fixes work)
+================================================================================
+
+python main.py test_print.clean --execute
+python main.py test_world_agent.clean --execute
+python main.py test_simple_exec.clean --execute
+
+================================================================================
+COMPILE ONLY (No execution)
+================================================================================
+
+python main.py <filename.clean>
+
+Example:
+python main.py sample.clean
+
+================================================================================
